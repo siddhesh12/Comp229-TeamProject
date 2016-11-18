@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ProjectSiteMaster.master.cs" Inherits="PersonalLibraryProject_comp229.myPages.ProjectSiteMaster" %>
+
+<!--*******************************MASTER PAGE*******************************
+    Personal Library Managemnet
+    Author: @ Aakash Christian: 300808436
+    Folder: Pages
+    Project Script: BootStrap.css
+    Created Dt: 18th Nov, Friday
+
+    Version: 1.0
+    Page Discription: This page will manage the main purpose for all the other pages i.e mainTrackingPage.
+    -->
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Master Page</title>
+    <link rel="stylesheet" type="text/css" href="../myScripts/bootstrap.css"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
