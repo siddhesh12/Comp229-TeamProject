@@ -208,6 +208,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\MainTrackingPage.aspx" />
     <Content Include="Pages\ProjectSiteMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="ProjectScripts\bootstrap.css" />
@@ -371,6 +372,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Pages\MainTrackingPage.aspx.cs">
+      <DependentUpon>MainTrackingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MainTrackingPage.aspx.designer.cs">
+      <DependentUpon>MainTrackingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProjectSiteMaster.Master.cs">
       <DependentUpon>ProjectSiteMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
