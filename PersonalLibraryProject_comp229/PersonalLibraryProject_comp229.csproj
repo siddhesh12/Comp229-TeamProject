@@ -214,6 +214,7 @@
     <Content Include="ProjectScripts\bootstrap.js" />
     <Content Include="ProjectScripts\bootstrap.min.css" />
     <Content Include="ProjectScripts\bootstrap.min.js" />
+    <Content Include="ProjectScripts\stylesheet1.css" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
