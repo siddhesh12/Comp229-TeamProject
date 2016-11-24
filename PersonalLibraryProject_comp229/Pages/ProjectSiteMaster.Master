@@ -7,7 +7,7 @@
     Project Script: BootStrap.css
     Created Dt: 18th Nov, Friday
 
-    Version: 1.0
+    Version: 0.2
     Page Discription: This page will manage the main purpose for all the other pages i.e mainTrackingPage.
     -->
 
@@ -18,30 +18,80 @@
     <title>Master Page</title>
     <link rel="stylesheet" type="text/css" href="../myScripts/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="../ProjectScripts/stylesheet1.css"/>
-</head>
+    <link rel="stylesheet" type='text/css' href='http://fonts.googleapis.com/css?family=Lato:400,700' />
+   
+    <style type="text/css">
+        .auto-style9 {
+            height: 246px;
+        }
+        
+        }
+        .auto-style11 {
+            width: 100%;
+        }
+        .auto-style12 {
+            text-align: left;
+        }
+        .auto-style13 {
+            text-align: right;
+        }
+        .auto-style14 {
+            height: 64px;
+        }
+    </style>
+   
+    </head>
 <body>
     <form id="form1" runat="server">
-        <div style="text-align: center">
+        <div style="background-position: 50% 50%; text-align: center; background-repeat: no-repeat; background-attachment: fixed; background-image: url('/Assets/banner1.jpg');" class="auto-style9">
 
-            <asp:ImageButton ID="ImageButton1" runat="server" style="text-align: center" />
+            <br />
 
+            <asp:ImageButton ID="ImageButton1" runat="server" style="text-align: center" ImageAlign="Middle" ImageUrl="~/Assets/TeamLogo.png" Height="173px" Width="150px" />
+
+            <br />
+            <h2>PERSONAL LIBRARY MANAGEMENT</h2>
         </div>
         
-        <div style="text-align: center">
-            <asp:Image ID="Image1" runat="server" />
+        <div class="newStyle1">
+
+            <table class="auto-style11">
+                <tr>
+                    <td class="auto-style12"><a href="MainTrackingPage.aspx" style="font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; color: #CCCCCC; text-decoration: none">Home</a> | <a href="aboutus.aspx" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none">About us</a> | <a href="contactus.aspx" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none">Contact us</a></td>
+                    <td class="auto-style13"><a href="login.aspx" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none">Login</a></td>
+                </tr>
+            </table>
+
         </div>
+        <br/>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
+       
+            <div class="auto-style8">
+            </div>
+       
         </asp:ContentPlaceHolder>
     </div>
-        <br/>
-        <div style="text-align: center">
+        <div class="auto-style14" style="background-image: url('/Assets/banner2abfooter.jpg'); background-attachment: fixed; background-position: center center">
 
-            <asp:Image ID="Image2" runat="server" />
-
+            <br />
+            <br />
+           
         </div>
-        <footer>&copy; copyright AakashChristian, SiddheshMahadeshwar Comp229_TeamProject</footer>
+        <br/>
+        <div> 
+            <table class="auto-style11">
+                <tr>
+                    <td><footer class="auto-style12"><b>&copy; copyright A.S.Corp&#39;s</b></footer></td>
+                    <td class="auto-style13">
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/facebooklogoPng.png" Width="31px" />
+                        <asp:ImageButton ID="ImageButton3" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/twitter.png" Width="31px" />
+                        <asp:ImageButton ID="ImageButton4" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/linkdin.png" Width="31px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+       
     </form>
 </body>
 </html>

@@ -1,9 +1,89 @@
 ﻿body {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    font-family:sans-serif;
+    font-size:medium;
+    font-weight:normal;
+    align-items:center;
+    text-align:center;
+ background:url("../Assets/background2.jpg");
+ color:gainsboro;
+ box-sizing:padding-box;
+ margin-left:0%;
+ margin-top:0%;
+ margin-right:0%;
 }
 footer{
     text-align:center;
     color:lightgrey;
-    background:url("")
+   
+  background-position:50px;
+  font-size:small;
+}
+ .auto-style1 {
+            width: 482px;
+            height: 43px;
+
+        }
+        .auto-style3 {
+            width: 287px;
+        }
+        table{
+            font-family:sans-serif;
+        }
+.newStyle1 {
+    background-color: #000000;
+}
+table{
+    width:100%;
+    height:40px;
+    margin-top:0%;
+    margin-left:0%;
+    margin-right:0%;
+    text-decoration:none;
+}
+.div {
+    background-image: url('../Assets/facebookTab.jpg');
+    background-position: left top;
+    background-attachment: fixed;
+    margin-left:0%;
+    margin-right:0%;
+}
+ .auto-style4 {
+            width: 863px;
+            background-color: #CCCCCC;
+        }
+        .auto-style5 {
+            width: 287px;
+            text-align: left;
+        }
+        .auto-style6 {
+            width: 18px;
+            text-align: left;
+        }
+        .auto-style7 {
+            width: 80px;
+            text-align: left;
+        }
+        .auto-style8 {
+            text-align: center;
+        }
+label {
+    font-family: sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    font-style: normal;
+    color: #CCCCCC;
+    text-decoration: none;
+    left: 100%;
+}
+h2{
+    font-family:sans-serif;
+    color:black;
+}
+link {
+    color: #CCCCCC;
+    font-family: sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
 }
