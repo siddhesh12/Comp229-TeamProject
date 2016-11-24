@@ -226,6 +226,7 @@
     </Content>
     <Content Include="Pages\detailView.aspx" />
     <Content Include="Pages\login.aspx" />
+    <Content Include="Pages\MainTrackingPage.aspx" />
     <Content Include="Pages\ProjectSiteMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="ProjectScripts\bootstrap.css" />
@@ -402,6 +403,13 @@
     </Compile>
     <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainTrackingPage.aspx.cs">
+      <DependentUpon>MainTrackingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MainTrackingPage.aspx.designer.cs">
+      <DependentUpon>MainTrackingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProjectSiteMaster.Master.cs">
       <DependentUpon>ProjectSiteMaster.Master</DependentUpon>
