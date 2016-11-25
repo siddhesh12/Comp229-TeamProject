@@ -24,7 +24,21 @@
     <br/><br/>
  <div>  
       
-<asp:GridView ID="GridView1" runat="server">
+<asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="None">
+    <Columns>
+        <asp:BoundField HeaderText="Title" />
+        <asp:ImageField HeaderText="image">
+        </asp:ImageField>
+        <asp:TemplateField HeaderText="Details">
+            <EditItemTemplate>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </EditItemTemplate>
+            <ItemTemplate>
+                <asp:Label ID="Label1" runat="server"></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:ButtonField Text="Select" />
+    </Columns>
 
 </asp:GridView></div>
     <br/>
@@ -32,12 +46,31 @@
         <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label></div
     <br/><br/>
     <div>
-        <asp:GridView ID="GridView2" runat="server"></asp:GridView>
+        <asp:GridView ID="GridView2" runat="server" GridLines="None">
+            <Columns>
+                <asp:BoundField HeaderText="Title" />
+                <asp:ImageField HeaderText="Image">
+                </asp:ImageField>
+                <asp:BoundField HeaderText="Details" />
+                <asp:ButtonField Text="Select" />
+            </Columns>
+        </asp:GridView>
     </div>
     <br/>
     <div class="auto-style8">
         <asp:Label ID="Label3" runat="server" Text="Borrowed Books"></asp:Label></div>
     <br/>
-    <asp:GridView ID="GridView3" runat="server"></asp:GridView>
+    <asp:GridView ID="GridView3" runat="server" GridLines="None">
+        <Columns>
+            <asp:BoundField HeaderText="Title" />
+            <asp:ImageField HeaderText="Image">
+            </asp:ImageField>
+            <asp:BoundField HeaderText="Details" />
+            <asp:ButtonField Text="Select" />
+        </Columns>
+    </asp:GridView>
+    <br/>
+    <div>
+        <asp:Button ID="Button1" runat="server" Text="Insert" /></div>
 
 </asp:Content>

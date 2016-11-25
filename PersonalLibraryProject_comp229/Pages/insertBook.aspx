@@ -8,7 +8,7 @@
                     <asp:Label ID="Label1" runat="server" Text="ISBN NO"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="isbnNoTextField" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -16,20 +16,12 @@
                     <asp:Label ID="Label2" runat="server" Text="TITLE"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="titleTextField" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-             <tr>
-                <td class="auto-style13">
-                    <asp:Label ID="Label3" runat="server" Text="DETAIL"></asp:Label>
-                </td>
-                <td>
-                    <asp:TextBox ID="bookDetailsTextField" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                 </td>
             </tr>
         </table>
 
     </div>
     <br/>
-    <asp:Button ID="Submit" runat="server" Text="Submit" OnClick="submitButtonClicked" />
+    <asp:Button ID="Submit" runat="server" Text="Submit" />
 </asp:Content>
