@@ -1,4 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/ProjectSiteMaster.Master" AutoEventWireup="true" CodeBehind="AboutUs.aspx.cs" Inherits="PersonalLibraryProject_comp229.Pages.AboutUs" %>
+<%--******************************* About us Page ******************************
+    Personal Library Managemnet
+    Author: @ Siddhesh Mahadeshwar: 300915971
+    Folder: Pages
+    Project Script: BootStrap.css
+    Created Dt: 24th Nov 
+
+    Version: 0.2
+    Page Discription: This shows information about the company.--%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <h1>INTRODUCTION</h1><br/>
     Owned By: <h5>Aakash Christian and Siddhesh Mahadeshwer</h5><br/>
