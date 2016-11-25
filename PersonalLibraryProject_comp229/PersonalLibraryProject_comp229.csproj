@@ -225,6 +225,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\AboutUs.aspx" />
+    <Content Include="Pages\ContactUs.aspx" />
     <Content Include="Pages\detailView.aspx" />
     <Content Include="Pages\insertBook.aspx" />
     <Content Include="Pages\login.aspx" />
@@ -392,6 +394,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Pages\AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\detailView.aspx.cs">
       <DependentUpon>detailView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

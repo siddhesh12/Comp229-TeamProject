@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/ProjectSiteMaster.Master" AutoEventWireup="true" CodeBehind="MainTrackingPage.aspx.cs" Inherits="PersonalLibraryProject_comp229.Pages.MainTrackingPage" %>
 
-<%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
-
 <%--******************************* Main Tracking Page ******************************
     Personal Library Managemnet
     Author: @ Siddhesh Mahadeshwar: 300915971
@@ -26,12 +24,12 @@
     <br/><br/>
  <div>  
       
-     <asp:GridView ID="GridView4" runat="server">
-     </asp:GridView>
-    </div>
+<asp:GridView ID="GridView1" runat="server">
+
+</asp:GridView></div>
     <br/>
     <div class="auto-style8">
-        <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label></div>
+        <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label></div
     <br/><br/>
     <div>
         <asp:GridView ID="GridView2" runat="server"></asp:GridView>
