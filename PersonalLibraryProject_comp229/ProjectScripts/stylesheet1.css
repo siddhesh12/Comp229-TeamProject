@@ -10,6 +10,8 @@
  margin-left:0%;
  margin-top:0%;
  margin-right:0%;
+ padding-left:10px;
+ padding-right:10px;
 }
 footer{
     text-align:center;
@@ -87,3 +89,20 @@ link {
     font-style: normal;
     text-decoration: none;
 }
+   .auto-style9 {
+            height: 246px;
+        }
+        
+        }
+        .auto-style11 {
+            width: 100%;
+        }
+        .auto-style12 {
+            text-align: left;
+        }
+        .auto-style13 {
+            text-align: right;
+        }
+        .auto-style14 {
+            height: 64px;
+        }

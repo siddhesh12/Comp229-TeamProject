@@ -198,20 +198,14 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Assets\AboutUs.png" />
     <Content Include="Assets\background2.jpg" />
     <Content Include="Assets\banner1.jpg" />
-    <Content Include="Assets\banner2abfooter.jpg" />
-    <Content Include="Assets\ContactUs.png" />
+    <Content Include="Assets\banner2low.jpg" />
     <Content Include="Assets\facebooklogo.png" />
     <Content Include="Assets\facebooklogoPng.png" />
     <Content Include="Assets\footerCrop.jpg" />
     <Content Include="Assets\home.png" />
     <Content Include="Assets\linkdin.png" />
-    <Content Include="Assets\loginButton.png" />
-    <Content Include="Assets\Signin.png" />
-    <Content Include="Assets\SignUp.png" />
-    <Content Include="Assets\tabsBann.jpg" />
     <Content Include="Assets\TeamLogo.png" />
     <Content Include="Assets\twitter.png" />
     <Content Include="Content\bootstrap.css" />
@@ -233,6 +227,7 @@
     <Content Include="Pages\MainTrackingPage.aspx" />
     <Content Include="Pages\ProjectSiteMaster.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Pages\Registration.aspx" />
     <Content Include="ProjectScripts\bootstrap.css" />
     <Content Include="ProjectScripts\bootstrap.js" />
     <Content Include="ProjectScripts\bootstrap.min.css" />
@@ -442,6 +437,13 @@
     </Compile>
     <Compile Include="Pages\ProjectSiteMaster.Master.designer.cs">
       <DependentUpon>ProjectSiteMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

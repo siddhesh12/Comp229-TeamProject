@@ -13,5 +13,20 @@ namespace PersonalLibraryProject_comp229.myPages
         {
 
         }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("https://www.facebook.com");
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("https://www.twitter.com");
+        }
+
+        protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("https://www.linkedin.com");
+        }
     }
 }

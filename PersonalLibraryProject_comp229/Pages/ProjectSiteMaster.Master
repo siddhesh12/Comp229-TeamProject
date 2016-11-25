@@ -20,25 +20,6 @@
     <link rel="stylesheet" type="text/css" href="../ProjectScripts/stylesheet1.css"/>
     <link rel="stylesheet" type='text/css' href='http://fonts.googleapis.com/css?family=Lato:400,700' />
    
-    <style type="text/css">
-        .auto-style9 {
-            height: 246px;
-        }
-        
-        }
-        .auto-style11 {
-            width: 100%;
-        }
-        .auto-style12 {
-            text-align: left;
-        }
-        .auto-style13 {
-            text-align: right;
-        }
-        .auto-style14 {
-            height: 64px;
-        }
-    </style>
    
     </head>
 <body>
@@ -72,7 +53,7 @@
        
         </asp:ContentPlaceHolder>
     </div>
-        <div class="auto-style14" style="background-image: url('/Assets/banner2abfooter.jpg'); background-attachment: fixed; background-position: center center">
+        <div class="auto-style14" style="background-image: url('/Assets/banner2low.jpg'); background-attachment: fixed; background-position: center center">
 
             <br />
             <br />
@@ -84,9 +65,9 @@
                 <tr>
                     <td><footer class="auto-style12"><b>&copy; copyright A.S.Corp&#39;s</b></footer></td>
                     <td class="auto-style13">
-                        <asp:ImageButton ID="ImageButton2" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/facebooklogoPng.png" Width="31px" />
-                        <asp:ImageButton ID="ImageButton3" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/twitter.png" Width="31px" />
-                        <asp:ImageButton ID="ImageButton4" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/linkdin.png" Width="31px" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/facebooklogoPng.png" Width="31px" OnClick="ImageButton2_Click" />
+                        <asp:ImageButton ID="ImageButton3" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/twitter.png" Width="31px" OnClick="ImageButton3_Click" />
+                        <asp:ImageButton ID="ImageButton4" runat="server" Height="27px" ImageAlign="Middle" ImageUrl="~/Assets/linkdin.png" Width="31px" OnClick="ImageButton4_Click" />
                     </td>
                 </tr>
             </table>
