@@ -51,6 +51,6 @@
         </LayoutTemplate>
     </asp:Login>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Register" /></div>
+        <asp:Button ID="Button1" runat="server" Text="Register" OnClick="registrationButtonClicked" /></div>
     <br/>
 </asp:Content>

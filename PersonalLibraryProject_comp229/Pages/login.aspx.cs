@@ -67,6 +67,9 @@ namespace PersonalLibraryProject_comp229.Pages
             }
         }
 
-
+        protected void registrationButtonClicked(object sender, EventArgs e)
+        {
+            Response.Redirect("Registration.aspx");
+        }
     }
 }
