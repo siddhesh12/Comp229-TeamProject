@@ -10,8 +10,9 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="GridView1" runat="server">
+                    <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1">
                     </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbConnectionString %>" SelectCommand="select * from Students"></asp:SqlDataSource>
                 </td>
             </tr>
             <tr>
