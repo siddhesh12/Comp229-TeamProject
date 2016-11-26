@@ -88,6 +88,6 @@
     </asp:GridView>
     <br/>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Insert" /></div>
+        <asp:Button ID="Button1" runat="server" Text="Insert Book" onClick="insertButtonClicked"/></div>
 
 </asp:Content>
