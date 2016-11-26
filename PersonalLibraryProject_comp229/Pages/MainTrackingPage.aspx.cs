@@ -22,16 +22,36 @@ namespace PersonalLibraryProject_comp229.Pages
         protected void bindList()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ToString());
-            SqlCommand comm = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.date  > @date", connection);
-            comm.Parameters.Add("@date", System.Data.SqlDbType.Date);
-            comm.Parameters["@date"].Value = DateTime.Now.AddDays(-7);
+            SqlCommand commRecentlyAdded = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.date  > @date", connection);
+            SqlCommand commAvailableBooks = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.is_available = @isAvailable" , connection);
+            SqlCommand commBorrowedBooks = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.is_available = @isAvailable", connection);
+
+            commRecentlyAdded.Parameters.Add("@date", System.Data.SqlDbType.Date);
+            commRecentlyAdded.Parameters["@date"].Value = DateTime.Now.AddDays(-7);
+
+            commAvailableBooks.Parameters.Add("@isAvailable", System.Data.SqlDbType.Bit);
+            commAvailableBooks.Parameters["@isAvailable"].Value = true;
+
+            commBorrowedBooks.Parameters.Add("@isAvailable", System.Data.SqlDbType.Bit);
+            commBorrowedBooks.Parameters["@isAvailable"].Value = false;
+
             try
             {
                 connection.Open();
-                SqlDataReader reader = comm.ExecuteReader();
-                GridView1.DataSource = reader;
-                GridView1.DataBind();
-                reader.Close();
+                SqlDataReader readerRecentlyAdded = commRecentlyAdded.ExecuteReader();
+                recentlyAddedGrid.DataSource = readerRecentlyAdded;
+                recentlyAddedGrid.DataBind();
+                readerRecentlyAdded.Close();
+
+                SqlDataReader readerAvailableBooks = commAvailableBooks.ExecuteReader();
+                availabaleGrid.DataSource = readerAvailableBooks;
+                availabaleGrid.DataBind();
+                readerAvailableBooks.Close();
+
+                SqlDataReader readerBorrowedBooks = commBorrowedBooks.ExecuteReader();
+                borrowedGrid.DataSource = readerBorrowedBooks;
+                borrowedGrid.DataBind();
+                readerBorrowedBooks.Close();
             }
             finally
             {
@@ -39,6 +59,15 @@ namespace PersonalLibraryProject_comp229.Pages
             }
         }
 
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Command2")
+            {
+                
+               
+            }
+
+        }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

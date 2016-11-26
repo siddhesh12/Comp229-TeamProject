@@ -24,12 +24,20 @@
     <br/><br/>
  <div>  
       
-<asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False">
+<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" HorizontalAlign="Left">
     <Columns>
-        <asp:BoundField HeaderText="Title" DataField="book_name" />
+        <asp:BoundField HeaderText="Title" DataField="book_name" ShowHeader="False" >
+        <HeaderStyle HorizontalAlign="Left" />
+        <ItemStyle HorizontalAlign="Left" />
+        </asp:BoundField>
         <asp:ImageField HeaderText="image">
+            <HeaderStyle HorizontalAlign="Left" />
+            <ItemStyle HorizontalAlign="Left" />
         </asp:ImageField>
-        <asp:BoundField HeaderText="Book Details" DataField="book_detail"/>
+        <asp:BoundField HeaderText="Book Details" DataField="book_detail" ShowHeader="False">
+        <HeaderStyle HorizontalAlign="Left" />
+        <ItemStyle HorizontalAlign="Left" />
+        </asp:BoundField>
         <asp:ButtonField Text="Details" />
     </Columns>
 
@@ -39,13 +47,21 @@
         <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label></div
     <br/><br/>
     <div>
-        <asp:GridView ID="GridView2" runat="server" GridLines="None">
+        <asp:GridView ID="availabaleGrid" runat="server" GridLines="None" AutoGenerateColumns="False">
             <Columns>
-                <asp:BoundField HeaderText="Title" />
+                <asp:BoundField HeaderText="Title" DataField="book_name">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
+                </asp:BoundField>
                 <asp:ImageField HeaderText="Image">
+                    <HeaderStyle HorizontalAlign="Left" />
+                    <ItemStyle HorizontalAlign="Left" />
                 </asp:ImageField>
-                <asp:BoundField HeaderText="Details" />
-                <asp:ButtonField Text="Select" />
+                <asp:BoundField HeaderText="Details" DataField="book_detail">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+                <asp:ButtonField Text="Book Details" />
             </Columns>
         </asp:GridView>
     </div>
@@ -53,13 +69,21 @@
     <div class="auto-style8">
         <asp:Label ID="Label3" runat="server" Text="Borrowed Books"></asp:Label></div>
     <br/>
-    <asp:GridView ID="GridView3" runat="server" GridLines="None">
+    <asp:GridView ID="borrowedGrid" runat="server" GridLines="None" AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField HeaderText="Title" />
+            <asp:BoundField HeaderText="Title" DataField="book_name">
+            <HeaderStyle HorizontalAlign="Left" />
+            <ItemStyle HorizontalAlign="Left" />
+            </asp:BoundField>
             <asp:ImageField HeaderText="Image">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
             </asp:ImageField>
-            <asp:BoundField HeaderText="Details" />
-            <asp:ButtonField Text="Select" />
+            <asp:BoundField HeaderText="Details" DataField="book_detail">
+            <HeaderStyle HorizontalAlign="Left" />
+            <ItemStyle HorizontalAlign="Left" />
+            </asp:BoundField>
+            <asp:ButtonField Text="Books Detail" />
         </Columns>
     </asp:GridView>
     <br/>
