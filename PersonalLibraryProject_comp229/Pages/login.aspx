@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/ProjectSiteMaster.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PersonalLibraryProject_comp229.Pages.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button ID="Button2" runat="server" OnClick="insertBookButtonClicked" Text="InsertBook" />
     <br/><br/>
     <asp:Login ID="Login1" runat="server">
         <LayoutTemplate>

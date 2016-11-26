@@ -17,7 +17,7 @@
     <asp:Label ID="Label1" runat="server" Text="Your FeedBack"></asp:Label><br/><br/>
     <textarea id="TextArea1" cols="30" rows="5"></textarea><br/><br/>
 
-    <asp:Button ID="Button1" runat="server" Text="Submit" /><br/><br/>
+    <asp:Button ID="Button1" runat="server" Text="Submit" onClick="submitButtonPressed"/><br/><br/>
 
 
 </asp:Content>

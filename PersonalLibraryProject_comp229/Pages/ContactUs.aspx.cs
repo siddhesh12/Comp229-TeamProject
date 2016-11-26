@@ -13,5 +13,10 @@ namespace PersonalLibraryProject_comp229.Pages
         {
 
         }
+
+        protected void submitButtonPressed(object sender, EventArgs e)
+        {
+            Response.Redirect("MainTrackingPage.aspx");
+        }
     }
 }
