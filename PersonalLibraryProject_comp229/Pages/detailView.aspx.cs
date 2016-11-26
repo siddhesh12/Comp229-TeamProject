@@ -54,9 +54,5 @@ namespace PersonalLibraryProject_comp229.Pages
             Response.Redirect("MainTrackingPage.aspx");
         }
 
-        protected void detailGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
