@@ -206,6 +206,7 @@
     <Content Include="Assets\footerCrop.jpg" />
     <Content Include="Assets\home.png" />
     <Content Include="Assets\linkdin.png" />
+    <Content Include="Assets\script.sql" />
     <Content Include="Assets\TeamLogo.png" />
     <Content Include="Assets\twitter.png" />
     <Content Include="Content\bootstrap.css" />
