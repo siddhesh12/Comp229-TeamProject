@@ -7,7 +7,7 @@
     Project Script: BootStrap.css
     Created Dt: 18th Nov, Friday 
 
-    Version: 1.0
+    Version: 0.2
     Page Discription: This serve as a home page.--%>
     
 
@@ -86,6 +86,6 @@
     </asp:GridView>
     <br/>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Insert" /></div>
+        <asp:Button ID="Button1" runat="server" Text="Insert" onClick="insertButtonClicked"/></div>
 
 </asp:Content>

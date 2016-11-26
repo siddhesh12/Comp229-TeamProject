@@ -1,5 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/ProjectSiteMaster.Master" AutoEventWireup="true" CodeBehind="detailView.aspx.cs" Inherits="PersonalLibraryProject_comp229.Pages.detailView" %>
+
+<%--******************************* Main Tracking Page ******************************
+    Personal Library Managemnet
+    Author: @ Aakash Chirstian: 300808436
+    Folder: Pages
+    Project Script: BootStrap.css
+    Created Dt: 18th Nov, Friday 
+
+    Version: 0.2
+    Page Discription: This serve as a home page.--%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div>
         
         <table style="width: 100%">
@@ -10,7 +22,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="detailGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="detailGridView_SelectedIndexChanged" Width="724px">
+                    <asp:GridView ID="detailGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="detailGridView_SelectedIndexChanged" Width="724px" HorizontalAlign="Center">
                     <Columns>
                 <asp:BoundField HeaderText="Title" DataField="book_name">
                 <HeaderStyle HorizontalAlign="Left" />
@@ -31,7 +43,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="reviewGrid" runat="server" AutoGenerateColumns="False" Width="328px">
+                    <asp:GridView ID="reviewGrid" runat="server" AutoGenerateColumns="False" Width="328px" HorizontalAlign="Center">
                          <Columns>
                 <asp:BoundField HeaderText="Reviews" DataField="reviews_msg">
                 <HeaderStyle HorizontalAlign="Left" />

@@ -74,7 +74,7 @@ namespace PersonalLibraryProject_comp229.Pages
 
         protected void insertButtonClicked(object sender, EventArgs e)
         {
-            Response.Redirect("MainTrackingPage.aspx");
+            Response.Redirect("insertBook.aspx");
         }
 
         protected void borrowedGrid_SelectedIndexChanged(object sender, EventArgs e)

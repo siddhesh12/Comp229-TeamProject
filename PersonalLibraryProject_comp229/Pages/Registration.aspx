@@ -1,4 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/ProjectSiteMaster.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="PersonalLibraryProject_comp229.Pages.Registration" %>
+<%--******************************* Contact us Page ******************************
+    Personal Library Managemnet
+    Author: @ Aakash  Chirtian: 300808436
+    Folder: Pages
+    Project Script: BootStrap.css
+    Created Dt: 24th Nov 
+
+    Version: 0.2
+    Page Discription: This serves contact information about the company.--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div>
