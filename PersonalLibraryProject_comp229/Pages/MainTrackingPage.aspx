@@ -24,20 +24,13 @@
     <br/><br/>
  <div>  
       
-<asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="None">
+<asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False">
     <Columns>
-        <asp:BoundField HeaderText="Title" />
+        <asp:BoundField HeaderText="Title" DataField="book_name" />
         <asp:ImageField HeaderText="image">
         </asp:ImageField>
-        <asp:TemplateField HeaderText="Details">
-            <EditItemTemplate>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </EditItemTemplate>
-            <ItemTemplate>
-                <asp:Label ID="Label1" runat="server"></asp:Label>
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:ButtonField Text="Select" />
+        <asp:BoundField HeaderText="Book Details" DataField="book_detail"/>
+        <asp:ButtonField Text="Details" />
     </Columns>
 
 </asp:GridView></div>
