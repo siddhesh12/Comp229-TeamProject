@@ -24,7 +24,7 @@
     <br/><br/>
  <div>  
       
-<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" HorizontalAlign="Left">
+<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" HorizontalAlign="Left" OnRowCommand="GridView1_RowCommand">
     <Columns>
         <asp:BoundField HeaderText="Title" DataField="book_name" ShowHeader="False" >
         <HeaderStyle HorizontalAlign="Left" />
@@ -38,7 +38,7 @@
         <HeaderStyle HorizontalAlign="Left" />
         <ItemStyle HorizontalAlign="Left" />
         </asp:BoundField>
-        <asp:ButtonField Text="Details" />
+        <asp:ButtonField Text="Details" CommandName="detailCommand" />
     </Columns>
 
 </asp:GridView></div>

@@ -13,5 +13,10 @@ namespace PersonalLibraryProject_comp229.Pages
         {
 
         }
+
+        protected void detailGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
