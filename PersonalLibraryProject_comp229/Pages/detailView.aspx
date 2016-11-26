@@ -10,17 +10,38 @@
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="detailGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="detailGridView_SelectedIndexChanged">
-                    </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbConnectionString %>" SelectCommand="select * from Comp229TeamProject.dbo.Books"></asp:SqlDataSource>
+                    <asp:GridView ID="detailGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="detailGridView_SelectedIndexChanged" Width="724px">
+                    <Columns>
+                <asp:BoundField HeaderText="Title" DataField="book_name">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+                <asp:BoundField HeaderText="Details" DataField="book_detail">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+            </Columns>
+            </asp:GridView>
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="XX-Large" Font-Strikeout="False" style="text-align: left" Text="Reviews"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="GridView2" runat="server">
+                    <asp:GridView ID="reviewGrid" runat="server" AutoGenerateColumns="False" Width="328px">
+                         <Columns>
+                <asp:BoundField HeaderText="Reviews" DataField="reviews_msg">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+                <asp:BoundField HeaderText="User" DataField="name">
+                <HeaderStyle HorizontalAlign="Left" />
+                <ItemStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+            </Columns>
                     </asp:GridView>
                 </td>
             </tr>
@@ -33,6 +54,6 @@
     <div>
         <textarea id="TextArea1" cols="50" rows="5"></textarea><br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Submit" />
+        <asp:Button ID="Button1" runat="server" Text="Submit" onClick="submitButtonClicked"/>
 </div>
 </asp:Content>

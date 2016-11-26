@@ -76,5 +76,10 @@ namespace PersonalLibraryProject_comp229.Pages
         {
             Response.Redirect("MainTrackingPage.aspx");
         }
+
+        protected void borrowedGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

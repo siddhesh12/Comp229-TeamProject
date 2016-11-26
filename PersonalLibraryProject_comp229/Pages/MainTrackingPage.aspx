@@ -11,8 +11,9 @@
     Page Discription: This serve as a home page.--%>
     
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<%--<link rel="stylesheet" type="text/css" href="../Scripts/mainPageStyle.css"/>--%>
     <br/>
     <h5 style="text-align: center">Welcome To Personal Library Management </h5> <br/>
     Life&#39;s best moments Start with best stories, Enjoy in this world of Books.<br/>
@@ -21,73 +22,70 @@
 <br />
 <br />
    <div class="auto-style8"> <asp:Label ID="Label1" runat="server" Text="Recently Added"></asp:Label></div>
-    <br/><br/>
- <div>  
+    <br/><br/><br/>
+ <div style="margin-right: auto; margin-left: auto">  
       
-<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" HorizontalAlign="Left" OnRowCommand="GridView1_RowCommand">
+<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="Horizontal" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center">
     <Columns>
-        <asp:BoundField HeaderText="Title" DataField="book_name" ShowHeader="False" >
-        <HeaderStyle HorizontalAlign="Left" />
-        <ItemStyle HorizontalAlign="Left" />
-        </asp:BoundField>
-        <asp:ImageField HeaderText="image">
-            <HeaderStyle HorizontalAlign="Left" />
-            <ItemStyle HorizontalAlign="Left" />
-        </asp:ImageField>
-        <asp:BoundField HeaderText="Book Details" DataField="book_detail" ShowHeader="False">
-        <HeaderStyle HorizontalAlign="Left" />
-        <ItemStyle HorizontalAlign="Left" />
-        </asp:BoundField>
-        <asp:ButtonField Text="Details" CommandName="detailCommand" />
+        <asp:BoundField HeaderText="Title" dataField="book_name"/>
+        <asp:ButtonField Text="Book Detail" CommandName="detailCommand" />
     </Columns>
+
+    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+    <SortedAscendingCellStyle BackColor="#F7F7F7" />
+    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+    <SortedDescendingCellStyle BackColor="#E5E5E5" />
+    <SortedDescendingHeaderStyle BackColor="#242121" />
 
 </asp:GridView></div>
     <br/>
     <div class="auto-style8">
-        <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label></div
+        <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label>
+
+    </div>
     <br/><br/>
     <div>
-        <asp:GridView ID="availabaleGrid" runat="server" GridLines="None" AutoGenerateColumns="False">
+        <asp:GridView ID="availabaleGrid" runat="server" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" HorizontalAlign="Center">
             <Columns>
-                <asp:BoundField HeaderText="Title" DataField="book_name">
-                <HeaderStyle HorizontalAlign="Left" />
-                <ItemStyle HorizontalAlign="Left" />
-                </asp:BoundField>
-                <asp:ImageField HeaderText="Image">
-                    <HeaderStyle HorizontalAlign="Left" />
-                    <ItemStyle HorizontalAlign="Left" />
-                </asp:ImageField>
-                <asp:BoundField HeaderText="Details" DataField="book_detail">
-                <HeaderStyle HorizontalAlign="Left" />
-                <ItemStyle HorizontalAlign="Left" />
-                </asp:BoundField>
-                <asp:ButtonField Text="Book Details" />
+                <asp:BoundField HeaderText="Title" dataField="book_name"/>
+                <asp:ButtonField Text="Book Detail" CommandName="detailCommand" />
             </Columns>
+            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" ForeColor="#003399" />
+            <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+            <SortedAscendingCellStyle BackColor="#EDF6F6" />
+            <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+            <SortedDescendingCellStyle BackColor="#D6DFDF" />
+            <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
     </div>
     <br/>
     <div class="auto-style8">
         <asp:Label ID="Label3" runat="server" Text="Borrowed Books"></asp:Label></div>
     <br/>
-    <asp:GridView ID="borrowedGrid" runat="server" GridLines="None" AutoGenerateColumns="False">
+    <asp:GridView ID="borrowedGrid" runat="server" GridLines="Vertical" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField HeaderText="Title" DataField="book_name">
-            <HeaderStyle HorizontalAlign="Left" />
-            <ItemStyle HorizontalAlign="Left" />
-            </asp:BoundField>
-            <asp:ImageField HeaderText="Image">
-                <HeaderStyle HorizontalAlign="Left" />
-                <ItemStyle HorizontalAlign="Left" />
-            </asp:ImageField>
-            <asp:BoundField HeaderText="Details" DataField="book_detail">
-            <HeaderStyle HorizontalAlign="Left" />
-            <ItemStyle HorizontalAlign="Left" />
-            </asp:BoundField>
-            <asp:ButtonField Text="Books Detail" />
+            <asp:BoundField HeaderText="Title" dataField="book_name"/>
+            <asp:ButtonField Text="Book Detail" CommandName="detailCommand" />
         </Columns>
+        <FooterStyle BackColor="#CCCC99" />
+        <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+        <RowStyle BackColor="#F7F7DE" />
+        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#FBFBF2" />
+        <SortedAscendingHeaderStyle BackColor="#848384" />
+        <SortedDescendingCellStyle BackColor="#EAEAD3" />
+        <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
     <br/>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Insert Book" onClick="insertButtonClicked"/></div>
+        <asp:Button ID="Button1" runat="server" Text="Insert" /></div>
 
 </asp:Content>
