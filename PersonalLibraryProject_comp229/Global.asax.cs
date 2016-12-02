@@ -9,18 +9,11 @@ namespace PersonalLibraryProject_comp229
 {
     public class Global : System.Web.HttpApplication
     {
-        public string CONNECTION_STRING;
+        public const string CONNECTION_STRING = "dbConnectionString";
         public bool isSiddhesh = true;
         protected void Application_Start(object sender, EventArgs e)
         {
-            if(isSiddhesh)
-            {
-                CONNECTION_STRING = "dbConnectionString";
-            }
-            else //if aakash is logged in will just make above flag false. So that Aaakash can run the code in his project. 
-            { 
-                CONNECTION_STRING = "dbConnectionString1";
-            }
+           
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -21,7 +21,7 @@ namespace PersonalLibraryProject_comp229.Pages
 
         protected void bindList()
         {
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ToString());
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
             SqlCommand commRecentlyAdded = new SqlCommand("SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b WHERE b.date  > @date", connection);
             SqlCommand commAvailableBooks = new SqlCommand("SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b WHERE b.is_available = @isAvailable", connection);
             SqlCommand commBorrowedBooks = new SqlCommand("SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b WHERE b.is_available = @isAvailable", connection);

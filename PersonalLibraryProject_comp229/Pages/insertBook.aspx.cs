@@ -23,7 +23,7 @@ namespace PersonalLibraryProject_comp229.Pages
 
         protected void insertBookInformation(string bookTitle, string bookDetail, string isbnNo, bool isAvailable, DateTime date)
         {
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString1"].ToString());
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
             SqlCommand comm = new SqlCommand("INSERT INTO Comp229TeamProject.dbo.Books (isbn_no, book_name, book_detail, is_available, date) VALUES(@isbn_no, @book_name, @book_detail, @isAvilable, @date)", connection);
 
             comm.Parameters.Add("@isbn_no", System.Data.SqlDbType.VarChar);
