@@ -61,9 +61,10 @@ namespace PersonalLibraryProject_comp229.Pages
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            
             if (e.CommandName == "detailCommand")
             {
-                Response.Redirect("detailView.aspx");
+                Response.Redirect("detailView.aspx?userid="+"12");
             }
 
         }
