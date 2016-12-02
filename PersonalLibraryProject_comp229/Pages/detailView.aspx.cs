@@ -9,10 +9,16 @@ using System.Web.UI.WebControls;
 
 namespace PersonalLibraryProject_comp229.Pages
 {
+
     public partial class detailView : System.Web.UI.Page
     {
+        protected int bookID;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            bookID = Convert.ToInt32(Request.QueryString["userid"]);
+
             if (!IsPostBack)
             {
                 bindList();
@@ -22,10 +28,11 @@ namespace PersonalLibraryProject_comp229.Pages
         protected void bindList()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ToString());
-            SqlCommand comm = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.book_id = 1", connection);
+            SqlCommand comm = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.isbn_no =@book_id", connection);
             SqlCommand commReview = new SqlCommand("SELECT r.reviews_msg, u.name FROM Comp229TeamProject.dbo.Reviews r JOIN Comp229TeamProject.dbo.Users u ON(r.user_id = u.user_id) WHERE r.book_id = 1", connection);
 
-
+            comm.Parameters.Add("@book_id", System.Data.SqlDbType.Int);
+            comm.Parameters["@book_id"].Value = bookID;
             try
             {
                 connection.Open();

@@ -28,7 +28,16 @@
 <asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="Horizontal" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center">
     <Columns>
         <asp:BoundField HeaderText="Title" dataField="book_name"/>
-        <asp:ButtonField Text="Book Detail" CommandName="detailCommand" />
+        <asp:TemplateField>
+        <ItemTemplate>                
+          <asp:Button runat="server" 
+            ID="Details"
+            Text="BookDetail"
+            CommandName="detailCommand"
+            CommandArgument='<%#Eval("isbn_no") %>' />
+        </ItemTemplate>
+      </asp:TemplateField>
+        <%--<asp:ButtonField Text="Book Detail" CommandArgument='<%#Eval("isbn_no") %>' CommandName="detailCommand" />--%>
     </Columns>
 
     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -51,7 +60,16 @@
         <asp:GridView ID="availabaleGrid" runat="server" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField HeaderText="Title" dataField="book_name"/>
-                <asp:ButtonField Text="Book Detail" CommandName="detailCommand" />
+                 <asp:TemplateField>
+        <ItemTemplate>                
+          <asp:Button runat="server" 
+            ID="Details"
+            Text="BookDetail"
+            CommandName="detailCommand"
+            CommandArgument='<%#Eval("isbn_no") %>' />
+        </ItemTemplate>
+      </asp:TemplateField>
+                <%--<asp:ButtonField Text="Book Detail" CommandName="detailCommand" />--%>
             </Columns>
             <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
             <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -72,7 +90,16 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField HeaderText="Title" dataField="book_name"/>
-            <asp:ButtonField Text="Book Detail" CommandName="detailCommand" />
+             <asp:TemplateField>
+        <ItemTemplate>                
+          <asp:Button runat="server" 
+            ID="Details"
+            Text="BookDetail"
+            CommandName="detailCommand"
+            CommandArgument='<%#Eval("isbn_no") %>' />
+        </ItemTemplate>
+      </asp:TemplateField>
+            <%--<asp:ButtonField Text="Book Detail" CommandName="detailCommand" />--%>
         </Columns>
         <FooterStyle BackColor="#CCCC99" />
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
