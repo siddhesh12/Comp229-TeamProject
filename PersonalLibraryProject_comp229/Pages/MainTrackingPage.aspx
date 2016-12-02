@@ -28,24 +28,23 @@
 <asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="Horizontal" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center" OnSelectedIndexChanged="recentlyAddedGrid_SelectedIndexChanged">
     <Columns>
         <asp:BoundField HeaderText="Title" dataField="book_name"/>
-        <asp:TemplateField >
+      <%--  <asp:TemplateField >
         <ItemTemplate>     
             <asp:Label runat="server"
                 ID="reviewLabel"
                 Text='<%#Eval("review") %>'
                  />      
-         <%-- <asp:Button runat="server" 
-            ID="Details"
-            Text="BookDetail"
-            CommandName="detailCommand"
-            CommandArgument='<%#Eval("isbn_no") %>' />--%>
+             <asp:Label runat="server"
+                ID="review"
+                Text= 'reviews'
+                 />  
         </ItemTemplate>  
-      </asp:TemplateField>
+      </asp:TemplateField>--%>
          <asp:TemplateField>
         <ItemTemplate>                
           <asp:Button runat="server" 
             ID="Details"
-            Text="Review"
+            Text="Book Detail"
             CommandName="detailCommand"
             CommandArgument='<%#Eval("isbn_no") %>' />
         </ItemTemplate>  
