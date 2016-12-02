@@ -220,6 +220,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Global.asax" />
     <Content Include="Pages\AboutUs.aspx" />
     <Content Include="Pages\ContactUs.aspx" />
     <Content Include="Pages\detailView.aspx" />
@@ -390,6 +391,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Pages\AboutUs.aspx.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
