@@ -29,7 +29,7 @@ namespace PersonalLibraryProject_comp229.Pages
 
         protected void checkLogin(string name, string password)
         {
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString"].ToString());
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["dbConnectionString1"].ToString());
             SqlCommand comm = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT * FROM Comp229TeamProject.dbo.Users WHERE name = @name AND password = @password) THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END", connection);
             comm.Parameters.Add("@name", System.Data.SqlDbType.VarChar);
             comm.Parameters["@name"].Value = name;

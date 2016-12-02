@@ -15,10 +15,10 @@
 
         <table class="auto-style11">
             <tr>
-                <td class="auto-style13">
+                <td class="auto-style13" style="height: 26px">
                     <asp:Label ID="Label1" runat="server" Text="ISBN NO"></asp:Label>
                 </td>
-                <td>
+                <td style="height: 26px">
                     <asp:TextBox ID="isbnNoTextField" runat="server"></asp:TextBox>
                 </td>
             </tr>
