@@ -13,7 +13,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<%--<link rel="stylesheet" type="text/css" href="../Scripts/mainPageStyle.css"/>--%>
+    <%--<link rel="stylesheet" type="text/css" href="../Scripts/mainPageStyle.css"/>--%>
     <br/>
     <h5 style="text-align: center">Welcome To Personal Library Management </h5> <br/>
     Life&#39;s best moments Start with best stories, Enjoy in this world of Books.<br/>
@@ -25,19 +25,32 @@
     <br/><br/><br/>
  <div style="margin-right: auto; margin-left: auto">  
       
-<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="Horizontal" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center">
+<asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="Horizontal" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center" OnSelectedIndexChanged="recentlyAddedGrid_SelectedIndexChanged">
     <Columns>
         <asp:BoundField HeaderText="Title" dataField="book_name"/>
-        <asp:TemplateField>
-        <ItemTemplate>                
-          <asp:Button runat="server" 
+        <asp:TemplateField >
+        <ItemTemplate>     
+            <asp:Label runat="server"
+                ID="reviewLabel"
+                Text='<%#Eval("review") %>'
+                 />      
+         <%-- <asp:Button runat="server" 
             ID="Details"
             Text="BookDetail"
             CommandName="detailCommand"
-            CommandArgument='<%#Eval("isbn_no") %>' />
-        </ItemTemplate>
+            CommandArgument='<%#Eval("isbn_no") %>' />--%>
+        </ItemTemplate>  
       </asp:TemplateField>
-        <%--<asp:ButtonField Text="Book Detail" CommandArgument='<%#Eval("isbn_no") %>' CommandName="detailCommand" />--%>
+         <asp:TemplateField>
+        <ItemTemplate>                
+          <asp:Button runat="server" 
+            ID="Details"
+            Text="Review"
+            CommandName="detailCommand"
+            CommandArgument='<%#Eval("isbn_no") %>' />
+        </ItemTemplate>  
+      </asp:TemplateField>
+
     </Columns>
 
     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />

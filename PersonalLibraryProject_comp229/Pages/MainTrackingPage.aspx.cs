@@ -63,10 +63,9 @@ namespace PersonalLibraryProject_comp229.Pages
         {
             
             if (e.CommandName == "detailCommand")
-            {
+            { 
                 Response.Redirect("detailView.aspx?userid="+ (e.CommandArgument.ToString()));
             }
-
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,6 +78,11 @@ namespace PersonalLibraryProject_comp229.Pages
         }
 
         protected void borrowedGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void recentlyAddedGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
