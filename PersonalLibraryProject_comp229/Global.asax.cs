@@ -9,8 +9,26 @@ namespace PersonalLibraryProject_comp229
 {
     public class Global : System.Web.HttpApplication
     {
-        public const string CONNECTION_STRING = "dbConnectionString1";
+        public const string CONNECTION_STRING = "dbConnectionString";
+        public const string USERNAME = "user_name";
+        public const string PASSWORD = "password";
+        public const string ADMINUSERNAME = "Admin";
+        public const string ADMINPASSWORD = "Admin12345";
         public bool isSiddhesh = true;
+
+        public bool checkIsUserExists()
+        {
+            string userName = (string)Session[USERNAME];
+            if (userName != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         protected void Application_Start(object sender, EventArgs e)
         {
            
