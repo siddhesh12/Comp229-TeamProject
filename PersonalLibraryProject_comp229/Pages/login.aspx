@@ -7,11 +7,11 @@
     Project Script: BootStrap.css
     Created Dt: 24th Nov 
 
-    Version: 0.2
+    Version: 1.0
     Page Discription: This serves contact information about the company.--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br/><br/>
+    
     <asp:Login ID="Login1" runat="server">
         <LayoutTemplate>
             <table cellpadding="1" cellspacing="0" style="border-collapse:collapse;">

@@ -6,7 +6,7 @@
     Project Script: BootStrap.css
     Created Dt: 24th Nov 
 
-    Version: 0.2
+    Version: 1.0
     Page Discription: This serves contact information about the company.--%>
 
 

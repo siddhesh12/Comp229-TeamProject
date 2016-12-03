@@ -7,7 +7,7 @@
     Project Script: BootStrap.css
     Created Dt: 18th Nov, Friday 
 
-    Version: 0.2
+    Version: 1.0
     Page Discription: This serve as a home page.--%>
     
 
@@ -22,7 +22,7 @@
 <br />
 <br />
    <div class="auto-style8"> <asp:Label ID="Label1" runat="server" Text="Recently Added"></asp:Label></div>
-    <br/><br/><br/>
+    <br/><br/>
  <div style="margin-right: auto; margin-left: auto">  
       
 <asp:GridView ID="recentlyAddedGrid" runat="server" BorderStyle="None" GridLines="Horizontal" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#CCCCCC" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center" OnSelectedIndexChanged="recentlyAddedGrid_SelectedIndexChanged">
@@ -65,9 +65,8 @@
     <br/>
     <div class="auto-style8">
         <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label>
-
     </div>
-    <br/><br/>
+    <br/>
     <div>
         <asp:GridView ID="availabaleGrid" runat="server" AutoGenerateColumns="False"  OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" HorizontalAlign="Center">
             <Columns>
