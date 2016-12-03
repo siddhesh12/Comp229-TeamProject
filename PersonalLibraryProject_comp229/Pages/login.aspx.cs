@@ -54,6 +54,9 @@ namespace PersonalLibraryProject_comp229.Pages
                     Session[Global.PASSWORD] = password;
                     (Master as myPages.ProjectSiteMaster).updateSessionData();
                     Response.Redirect("MainTrackingPage.aspx");
+
+  //                  UPDATE Comp229TeamProject.dbo.Books SET is_available = 0, user_id = 1 WHERE isbn_no = '121106031'
+  //SELECT b.is_available from Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON(b.user_id = u.user_id) WHERE b.isbn_no = '121106031' AND u.user_id = '1'
                 }
                 else
                 {

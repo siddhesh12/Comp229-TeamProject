@@ -46,6 +46,20 @@ namespace PersonalLibraryProject_comp229.myPages
 
         }
 
+        public string getUserName()
+        {
+            string userName = (string)Session[Global.USERNAME];
+            if (userName != null)
+            {
+                return userName;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public bool checkIsAdmin()
         {
             string userName = (string)Session[Global.USERNAME];
@@ -98,6 +112,7 @@ namespace PersonalLibraryProject_comp229.myPages
             Session[Global.PASSWORD] = null;
             loginLabel.Text = "Login";
             isUserPresent = false;
+            Response.Redirect("MainTrackingPage.aspx");
         }
     }
 }
