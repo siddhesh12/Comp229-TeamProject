@@ -86,7 +86,7 @@ namespace PersonalLibraryProject_comp229.Pages
             
             if (e.CommandName == "detailCommand")
             { 
-                Response.Redirect("detailView.aspx?userid="+ (e.CommandArgument.ToString()));
+                Response.Redirect("detailView.aspx?isbn_no=" + (e.CommandArgument.ToString()));
             }
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

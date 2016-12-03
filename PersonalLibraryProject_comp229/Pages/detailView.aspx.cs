@@ -13,14 +13,14 @@ namespace PersonalLibraryProject_comp229.Pages
 
     public partial class detailView : System.Web.UI.Page
     {
-        protected int bookID;
+        protected int bookISBNNo;
         private string userName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            
-            bookID = Convert.ToInt32(Request.QueryString["userid"]);
+
+            bookISBNNo = Convert.ToInt32(Request.QueryString["isbn_no"]);
 
             if (!IsPostBack)
             {
@@ -34,10 +34,24 @@ namespace PersonalLibraryProject_comp229.Pages
             if ((Master as myPages.ProjectSiteMaster).checkIsUserExists()) //check wheather user exists in cookies. 
             {
                 bottomButton.Visible = true;
-                userName = (Master as myPages.ProjectSiteMaster).getUserName();//get user name fromseesion
-                //check if user borrowed or user can return
+                userName = (Master as myPages.ProjectSiteMaster).getUserName();//get user name from session
+                                                                               //check if user borrowed or user can return
 
-                getUserID
+                if(isBookAvailable(""+ bookISBNNo)) //first check if book is available then 
+                {
+                    bottomButton.Visible = true;
+                    bottomButton.Text = "Borrow";
+                }
+                else
+                {
+
+                }
+
+
+                //                  UPDATE Comp229TeamProject.dbo.Books SET is_available = 0, user_id = 1 WHERE isbn_no = '121106031'
+                //SELECT b.is_available from Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON(b.user_id = u.user_id) WHERE b.isbn_no = '121106031' AND u.user_id = '1'
+
+
             }
             else
             {
@@ -52,7 +66,7 @@ namespace PersonalLibraryProject_comp229.Pages
             SqlCommand commReview = new SqlCommand("SELECT r.reviews_msg, u.name FROM Comp229TeamProject.dbo.Reviews r JOIN Comp229TeamProject.dbo.Users u ON(r.user_id = u.user_id) WHERE r.book_id = 1", connection);
 
             comm.Parameters.Add("@book_id", System.Data.SqlDbType.Int);
-            comm.Parameters["@book_id"].Value = bookID;
+            comm.Parameters["@book_id"].Value = bookISBNNo;
             try
             {
                 connection.Open();
@@ -103,6 +117,68 @@ namespace PersonalLibraryProject_comp229.Pages
                 reader.Close();
 
              
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        protected bool isBookAvailable(string isbnNumber)
+        {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
+            SqlCommand comm = new SqlCommand("SELECT b.is_available from  Comp229TeamProject.dbo.Books b WHERE b.isbn_no = @isbnNo", connection);
+
+            comm.Parameters.Add("@isbnNo", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@isbnNo"].Value = isbnNumber;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = comm.ExecuteReader();
+
+                bool isAvailable = true;
+                while (reader.Read())
+                {
+                    isAvailable = Convert.ToBoolean(((IDataRecord)reader)[0]);
+                }
+
+                return isAvailable;
+                reader.Close();
+
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        protected bool isBookBorrowedByUser(string isbnNumber, string userName)
+        {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
+            SqlCommand comm = new SqlCommand("SELECT b.is_available from Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON(b.user_id = u.user_id) WHERE b.isbn_no = @isbnNo AND u.user_id = @userId ", connection);
+
+            comm.Parameters.Add("@isbnNo", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@isbnNo"].Value = isbnNumber;
+
+            comm.Parameters.Add("@userId", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@userId"].Value = userName;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = comm.ExecuteReader();
+
+                bool isAvailable = true;
+                while (reader.Read())
+                {
+                    isAvailable = Convert.ToBoolean(((IDataRecord)reader)[0]);
+                }
+
+                return isAvailable;
+                reader.Close();
+
+
             }
             finally
             {
