@@ -46,6 +46,9 @@ namespace PersonalLibraryProject_comp229.Pages
                 {
                      if(reader.GetBoolean(0))
                     {
+                        Session[Global.USERNAME] = name;
+                        Session[Global.PASSWORD] = password;
+
                         Response.Redirect("MainTrackingPage.aspx");
                     }
                      else

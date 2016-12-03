@@ -125,6 +125,6 @@
     </asp:GridView>
     <br/>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Insert" onClick="insertButtonClicked"/></div>
+        <asp:Button ID="insertButton" runat="server" Text="Insert" onClick="insertButtonClicked"/></div>
 
 </asp:Content>
