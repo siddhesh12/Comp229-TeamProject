@@ -83,10 +83,12 @@
     <br />
 <asp:Label ID="Label1" runat="server" Text="Your Review Here"></asp:Label>
     <br/>
+    
     <div>
-        <textarea id="TextArea1" cols="50" rows="5"></textarea><br />
+        <asp:TextBox id="TextArea1" Columns="50" Rows="10" runat="server" TextMode="MultiLine"/><br />
+<%--        <textarea id="TextArea1" cols="50" rows="5"></textarea><br />--%>
         <br />
-        <asp:Button ID="Button2" runat="server" Text="Return" />
+        <asp:Button ID="bottomButton" runat="server" Text="Return" />
 &nbsp;<asp:Button ID="Button3" runat="server" Text="Borrow" />
         <br />
         <br />
