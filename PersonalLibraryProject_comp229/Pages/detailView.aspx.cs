@@ -15,10 +15,13 @@ namespace PersonalLibraryProject_comp229.Pages
     {
         protected int bookISBNNo;
         private string userName;
-
+        private int bookStatus;
+        private string userID;
+        //if bookStatus = 1 // available book 
+        //if bookStatus = 2//  current user have bought the book. return text will displayed
+        //if bookStatus = 3 // borrowed by some other user. 
         protected void Page_Load(object sender, EventArgs e)
         {
-
 
             bookISBNNo = Convert.ToInt32(Request.QueryString["isbn_no"]);
 
@@ -33,20 +36,34 @@ namespace PersonalLibraryProject_comp229.Pages
         {
             if ((Master as myPages.ProjectSiteMaster).checkIsUserExists()) //check wheather user exists in cookies. 
             {
+                submitButton.Visible = true;
                 bottomButton.Visible = true;
                 userName = (Master as myPages.ProjectSiteMaster).getUserName();//get user name from session
                                                                                //check if user borrowed or user can return
+                 userID = getUserID(userName); //fetch user id from give username.
 
-                if(isBookAvailable(""+ bookISBNNo)) //first check if book is available then 
+                if (isBookAvailable(""+ bookISBNNo)) //first check if book is available then 
                 {
                     bottomButton.Visible = true;
-                    bottomButton.Text = "Borrow";
+                    bottomButton.Text = "Borrow Book";
+                    bookStatus = 1;
                 }
-                else
+                else //if book is not availble.
                 {
-
+                    //check if book is borrowed by the user it self.
+                    if(isBookBorrowedByOtherUser(""+bookISBNNo, userID)) 
+                    {
+                        bottomButton.Text = "Borrowed, sorry cannot borrow until user returns it. ";
+                        bookStatus = 3;
+                       
+                    }
+                    else //borrowed by current user. //if borrowed by the user then change button to return
+                    {
+                        bottomButton.Visible = true;
+                        bottomButton.Text = "Return Book";
+                        bookStatus = 2;
+                    }
                 }
-
 
                 //                  UPDATE Comp229TeamProject.dbo.Books SET is_available = 0, user_id = 1 WHERE isbn_no = '121106031'
                 //SELECT b.is_available from Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON(b.user_id = u.user_id) WHERE b.isbn_no = '121106031' AND u.user_id = '1'
@@ -55,7 +72,8 @@ namespace PersonalLibraryProject_comp229.Pages
             }
             else
             {
-                bottomButton.Visible = true;
+                bottomButton.Visible = false;
+                submitButton.Visible = false;
             }
         }
            
@@ -153,7 +171,7 @@ namespace PersonalLibraryProject_comp229.Pages
             }
         }
 
-        protected bool isBookBorrowedByUser(string isbnNumber, string userName)
+        protected bool isBookBorrowedByOtherUser(string isbnNumber, string userName)
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
             SqlCommand comm = new SqlCommand("SELECT b.is_available from Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON(b.user_id = u.user_id) WHERE b.isbn_no = @isbnNo AND u.user_id = @userId ", connection);
@@ -169,16 +187,47 @@ namespace PersonalLibraryProject_comp229.Pages
                 connection.Open();
                 SqlDataReader reader = comm.ExecuteReader();
 
-                bool isAvailable = true;
+                bool isBorrowedByOtherUser = true;
                 while (reader.Read())
                 {
-                    isAvailable = Convert.ToBoolean(((IDataRecord)reader)[0]);
+                    isBorrowedByOtherUser = Convert.ToBoolean(((IDataRecord)reader)[0]);
                 }
 
-                return isAvailable;
+                return isBorrowedByOtherUser;
                 reader.Close();
 
 
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        protected void updateBookStatus(string userId, string isbnNo, bool bookStatus)
+        {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
+            SqlCommand comm = new SqlCommand("UPDATE Comp229TeamProject.dbo.Books SET is_available = @isAvailable, user_id = @userId WHERE isbn_no = @isbnNo", connection);
+
+            comm.Parameters.Add("@isbnNo", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@isbnNo"].Value = isbnNo;
+
+            comm.Parameters.Add("@userId", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@userId"].Value = userId;
+
+            comm.Parameters.Add("@isAvailable", System.Data.SqlDbType.Bit);
+            comm.Parameters["@isAvailable"].Value = bookStatus;
+
+            try
+            {
+                connection.Open();
+                comm.ExecuteNonQuery();
+                Response.Redirect("MainTrackingPage.aspx");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script> alert('error: " + ex.Message + "'); </script>");
             }
             finally
             {
@@ -196,5 +245,24 @@ namespace PersonalLibraryProject_comp229.Pages
             Response.Redirect("MainTrackingPage.aspx");
         }
 
+        protected void bottomButton_Click(object sender, EventArgs e)
+        {
+            if(bottomButton.Text == "Borrow Book") 
+            {
+                userName = (Master as myPages.ProjectSiteMaster).getUserName();
+                userID = getUserID(userName);
+                updateBookStatus(userID, ""+ bookISBNNo, false);
+            }
+            else if(bottomButton.Text == "Return Book") //if return 
+            {
+                userName = (Master as myPages.ProjectSiteMaster).getUserName();
+                userID = getUserID(userName);
+                updateBookStatus(userID, "" + bookISBNNo, true);
+            }
+            else
+            {
+                //do nothing because book is already borrowed
+            }
+        }
     }
 }

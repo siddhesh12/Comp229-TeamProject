@@ -9,7 +9,7 @@ namespace PersonalLibraryProject_comp229
 {
     public class Global : System.Web.HttpApplication
     {
-        public const string CONNECTION_STRING = "dbConnectionString1";
+        public const string CONNECTION_STRING = "dbConnectionString";
         public const string USERNAME = "user_name";
         public const string PASSWORD = "password";
         public const string ADMINUSERNAME = "Admin";

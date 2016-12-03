@@ -40,7 +40,7 @@
             <br />
             <h2>PERSONAL LIBRARY MANAGEMENT</h2>
             <h5 class="auto-style13">
-                <asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Label"></asp:Label>
+                <asp:Label ID="titleUserName" runat="server" ForeColor="Black" Text="Label"></asp:Label>
             </h5>
         </div>
         <div class="newStyle1">

@@ -88,10 +88,9 @@
         <asp:TextBox id="TextArea1" Columns="50" Rows="10" runat="server" TextMode="MultiLine"/><br />
 <%--        <textarea id="TextArea1" cols="50" rows="5"></textarea><br />--%>
         <br />
-        <asp:Button ID="bottomButton" runat="server" Text="Return" />
-&nbsp;<asp:Button ID="Button3" runat="server" Text="Borrow" />
+        <asp:Button ID="bottomButton" runat="server" Text="Return" OnClick="bottomButton_Click" />
+&nbsp;<br />
         <br />
-        <br />
-        <asp:Button ID="Button1" runat="server" Text="Submit" onClick="submitButtonClicked" ForeColor="Black"/>
+        <asp:Button ID="submitButton" runat="server" Text="Submit review" onClick="submitButtonClicked" ForeColor="Black"/>
 </div>
 </asp:Content>

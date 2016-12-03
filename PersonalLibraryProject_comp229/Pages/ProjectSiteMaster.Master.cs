@@ -22,9 +22,12 @@ namespace PersonalLibraryProject_comp229.myPages
             {
                 isUserPresent = true;
                 loginLabel.Text = "Logout";
+                titleUserName.Visible = true;
+                titleUserName.Text = "Welcome "+ getUserName();
             }
             else
             {
+                titleUserName.Visible = false;
                 isUserPresent = false;
                 loginLabel.Text = "Login";
             }
