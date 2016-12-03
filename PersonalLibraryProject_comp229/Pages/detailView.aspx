@@ -11,18 +11,16 @@
     Page Discription: This serve as a home page.--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <link rel="stylesheet" type="text/css" href="../ProjectScripts/stylesheet1.css"/>
     <div>
         
-        <table style="width: 100%">
-            <tr>
-                <td style="text-align: left">
-                    <asp:Image ID="Image1" runat="server" />
-                </td>
-            </tr>
+        <table style="width: 100%" align="center">
             <tr>
                 <td>
-                    <asp:GridView ID="detailGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="detailGridView_SelectedIndexChanged" Width="724px" HorizontalAlign="Center">
+                    <asp:Image ID="Image1" runat="server" />
+                </td>
+                <td>
+                    <asp:GridView ID="detailGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="detailGridView_SelectedIndexChanged" HorizontalAlign="Center" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
                     <Columns>
                 <asp:BoundField HeaderText="Title" DataField="book_name">
                 <HeaderStyle HorizontalAlign="Left" />
@@ -33,17 +31,30 @@
                 <ItemStyle HorizontalAlign="Left" />
                 </asp:BoundField>
             </Columns>
+                        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
+                        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+                        <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
+                    <br />
                 </td>
             </tr>
             <tr>
+                <td>
+                    &nbsp;</td>
                 <td>
                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="XX-Large" Font-Strikeout="False" style="text-align: left" Text="Reviews"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:GridView ID="reviewGrid" runat="server" AutoGenerateColumns="False" Width="328px" HorizontalAlign="Center">
+                    &nbsp;</td>
+                <td>
+                    <asp:GridView ID="reviewGrid" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
                          <Columns>
                 <asp:BoundField HeaderText="Reviews" DataField="reviews_msg">
                 <HeaderStyle HorizontalAlign="Left" />
@@ -54,6 +65,15 @@
                 <ItemStyle HorizontalAlign="Left" />
                 </asp:BoundField>
             </Columns>
+                         <FooterStyle BackColor="#CCCCCC" />
+                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                         <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                         <RowStyle BackColor="White" />
+                         <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                         <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                         <SortedAscendingHeaderStyle BackColor="#808080" />
+                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                 </td>
             </tr>
@@ -66,6 +86,10 @@
     <div>
         <textarea id="TextArea1" cols="50" rows="5"></textarea><br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Submit" onClick="submitButtonClicked"/>
+        <asp:Button ID="Button2" runat="server" Text="Return" />
+&nbsp;<asp:Button ID="Button3" runat="server" Text="Borrow" />
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="Submit" onClick="submitButtonClicked" ForeColor="Black"/>
 </div>
 </asp:Content>
