@@ -7,7 +7,7 @@
     Project Script: BootStrap.css
     Created Dt: 18th Nov, Friday
 
-    Version: 0.2
+    Version: 1.0
     Page Discription: This page will manage the main purpose for all the other pages i.e mainTrackingPage.
     -->
 
@@ -21,10 +21,17 @@
     <link rel="stylesheet" type='text/css' href='http://fonts.googleapis.com/css?family=Lato:400,700' />
    
    
+    <style type="text/css">
+        .auto-style15 {
+            height: 288px;
+        }
+    </style>
+   
+   
     </head>
 <body>
     <form id="form1" runat="server">
-        <div style="background-position: 50% 50%; text-align: center; background-repeat: no-repeat; background-attachment: fixed; background-image: url('/Assets/banner1.jpg');" class="auto-style9">
+        <div style="background-position: 50% 50%; text-align: center; background-repeat: no-repeat; background-attachment: fixed; background-image: url('/Assets/banner1.jpg');" class="auto-style15">
 
             <br />
 
@@ -32,8 +39,10 @@
 
             <br />
             <h2>PERSONAL LIBRARY MANAGEMENT</h2>
+            <h5 class="auto-style13">
+                <asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Label"></asp:Label>
+            </h5>
         </div>
-        
         <div class="newStyle1">
 
             <table class="auto-style11">

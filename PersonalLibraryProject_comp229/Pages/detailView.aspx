@@ -7,7 +7,7 @@
     Project Script: BootStrap.css
     Created Dt: 18th Nov, Friday 
 
-    Version: 0.2
+    Version: 1.0
     Page Discription: This serve as a home page.--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
