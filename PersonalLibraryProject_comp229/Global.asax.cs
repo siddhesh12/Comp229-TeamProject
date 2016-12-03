@@ -9,7 +9,7 @@ namespace PersonalLibraryProject_comp229
 {
     public class Global : System.Web.HttpApplication
     {
-        public const string CONNECTION_STRING = "dbConnectionString";
+        public const string CONNECTION_STRING = "dbConnectionString1";
         public bool isSiddhesh = true;
         protected void Application_Start(object sender, EventArgs e)
         {
