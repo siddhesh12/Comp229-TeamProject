@@ -13,13 +13,31 @@ namespace PersonalLibraryProject_comp229.Pages {
     public partial class ContactUs {
         
         /// <summary>
-        /// Label1 control.
+        /// YourName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox YourName;
+        
+        /// <summary>
+        /// YourEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox YourEmail;
+        
+        /// <summary>
+        /// Comments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Comments;
         
         /// <summary>
         /// Button1 control.

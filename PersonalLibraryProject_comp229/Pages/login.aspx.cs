@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -30,7 +31,7 @@ namespace PersonalLibraryProject_comp229.Pages
         protected void checkLogin(string name, string password)
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
-            SqlCommand comm = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT * FROM Comp229TeamProject.dbo.Users WHERE name = @name AND password = @password) THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END", connection);
+            SqlCommand comm = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT * FROM Comp229TeamProject.dbo.Users WHERE name = @name AND password = @password) THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END 'count'", connection);
             comm.Parameters.Add("@name", System.Data.SqlDbType.VarChar);
             comm.Parameters["@name"].Value = name;
 
@@ -42,21 +43,22 @@ namespace PersonalLibraryProject_comp229.Pages
                 connection.Open();
                 SqlDataReader reader = comm.ExecuteReader();
 
-                if (reader.Read())
+                bool isPresent = false;
+                while (reader.Read())
                 {
-                     if(reader.GetBoolean(0))
-                    {
-                        Session[Global.USERNAME] = name;
-                        Session[Global.PASSWORD] = password;
-
-                        Response.Redirect("MainTrackingPage.aspx");
-                    }
-                     else
-                    {
-                       
-                        Login1.FailureText = "Wrong UserName or Password";
-                        Login1.EnableViewState = true;
-                    }
+                    isPresent = Convert.ToBoolean(((IDataRecord)reader)[0]);
+                }
+                if(isPresent) //loginExists
+                {
+                    Session[Global.USERNAME] = name;
+                    Session[Global.PASSWORD] = password;
+                    (Master as myPages.ProjectSiteMaster).updateSessionData();
+                    Response.Redirect("MainTrackingPage.aspx");
+                }
+                else
+                {
+                    Login1.FailureText = "Wrong UserName or Password";
+                    Login1.EnableViewState = true;
                 }
                 reader.Close();
             }

@@ -24,9 +24,10 @@ namespace PersonalLibraryProject_comp229.Pages
 
         protected void updateLoginUserUI()
         {
-            if(checkIsUserExists()) //check wheather user exists in cookies. 
+
+            if ((Master as myPages.ProjectSiteMaster).checkIsUserExists()) //check wheather user exists in cookies. 
             {
-                if(checkIsAdmin()) //if it is admin then only you can insert any book. other wise you cannot insert it. 
+                if((Master as myPages.ProjectSiteMaster).checkIsAdmin()) //if it is admin then only you can insert any book. other wise you cannot insert it. 
                       insertButton.Visible = true;
                 else
                       insertButton.Visible = false;
@@ -38,38 +39,8 @@ namespace PersonalLibraryProject_comp229.Pages
         }
 
 
-        private bool checkIsUserExists()
-        {
-            string userName = (string)Session[Global.USERNAME];
-            if (userName != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-
-        private bool checkIsAdmin()
-        {
-            string userName = (string)Session[Global.USERNAME];
-            string password = (string)Session[Global.PASSWORD];
-
-            if (userName != null && password != password )
-            {
-                if ((userName == Global.ADMINUSERNAME && password == Global.ADMINPASSWORD))
-                    return true;
-                else
-                    return false;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
+       
+       
         protected void bindList()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());

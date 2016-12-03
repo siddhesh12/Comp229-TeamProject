@@ -14,10 +14,18 @@
     <br/>
        <h5>Aakash Christian</h5> achristian3778@rediffmail.com<br/>
         <h5>Siddhesh Mahadeshwer</h5> siddheshmahadeshwer334@gmail.com<br/><br/>
-    <asp:Label ID="Label1" runat="server" Text="Your FeedBack"></asp:Label><br/><br/>
-    <textarea id="TextArea1" cols="30" rows="5"></textarea><br/><br/>
-
-    <asp:Button ID="Button1" runat="server" Text="Submit" onClick="submitButtonPressed"/><br/><br/>
+        
+   <p>Your name:<br />
+<asp:TextBox ID="YourName" runat="server" Width="150px" /><br />
+Your email address:<br />
+<asp:TextBox ID="YourEmail" runat="server" Width="150px" /><br />
+Your comments:<br />
+<asp:TextBox ID="Comments" runat="server" TextMode="MultiLine" Rows="10" Width="400px"/>
+</p>
+<p>
+<asp:Button ID="Button1" runat="server" Text="Send" OnClick="emailSendButton" />
+</p> 
+      
 
 
 </asp:Content>

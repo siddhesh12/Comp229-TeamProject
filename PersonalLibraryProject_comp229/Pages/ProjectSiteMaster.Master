@@ -39,7 +39,8 @@
             <table class="auto-style11">
                 <tr>
                     <td class="auto-style12"><a href="MainTrackingPage.aspx" style="font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; color: #CCCCCC; text-decoration: none">Home</a> | <a href="AboutUs.aspx" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none">About us</a> | <a href="ContactUs.aspx" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none">Contact us</a></td>
-                    <td class="auto-style13"><a href="login.aspx" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none">Login</a></td>
+                    <td class="auto-style13">
+                        <asp:LinkButton ID="loginLabel" text="Login" runat="server" onClick="loginLabel_Click" style="color: #CCCCCC; font-family: sans-serif; font-size: medium; font-weight: bold; font-style: normal; text-decoration: none" /></td>
                 </tr>
             </table>
 
