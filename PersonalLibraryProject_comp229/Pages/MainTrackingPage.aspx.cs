@@ -27,13 +27,17 @@ namespace PersonalLibraryProject_comp229.Pages
 
             if ((Master as myPages.ProjectSiteMaster).checkIsUserExists()) //check wheather user exists in cookies. 
             {
-                if((Master as myPages.ProjectSiteMaster).checkIsAdmin()) //if it is admin then only you can insert any book. other wise you cannot insert it. 
+                yourBorrowedBooks.Visible = true; //if user is logged in then show last grid
+                yourBooks.Visible = true;
+                if ((Master as myPages.ProjectSiteMaster).checkIsAdmin()) //if it is admin then only you can insert any book. other wise you cannot insert it. 
                       insertButton.Visible = true;
                 else
                       insertButton.Visible = false;
             }
             else
             {
+                yourBorrowedBooks.Visible = false;
+                yourBooks.Visible = false;
                 insertButton.Visible = false;
             }
         }
@@ -43,10 +47,16 @@ namespace PersonalLibraryProject_comp229.Pages
        
         protected void bindList()
         {
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
+            string userName = "";
+            if ((Master as myPages.ProjectSiteMaster).checkIsUserExists()) 
+            {
+                userName = ((Master as myPages.ProjectSiteMaster).getUserName());
+            }
+                SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
             SqlCommand commRecentlyAdded = new SqlCommand("SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b WHERE b.date  > @date AND b.is_available = 1", connection);
             SqlCommand commAvailableBooks = new SqlCommand("SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b WHERE b.is_available = @isAvailable", connection);
             SqlCommand commBorrowedBooks = new SqlCommand("SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b WHERE b.is_available = @isAvailable", connection);
+            SqlCommand yourBorrowedBookscommand = new SqlCommand("	SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON (b.user_id= u.user_id) where u.name = @userName AND b.is_available = 0", connection);
 
             commRecentlyAdded.Parameters.Add("@date", System.Data.SqlDbType.Date);
             commRecentlyAdded.Parameters["@date"].Value = DateTime.Now.AddDays(-15);
@@ -56,6 +66,9 @@ namespace PersonalLibraryProject_comp229.Pages
 
             commBorrowedBooks.Parameters.Add("@isAvailable", System.Data.SqlDbType.Bit);
             commBorrowedBooks.Parameters["@isAvailable"].Value = false;
+
+            yourBorrowedBookscommand.Parameters.Add("@userName", System.Data.SqlDbType.VarChar);
+            yourBorrowedBookscommand.Parameters["@userName"].Value = userName;
 
             try
             {
@@ -74,6 +87,11 @@ namespace PersonalLibraryProject_comp229.Pages
                 borrowedGrid.DataSource = readerBorrowedBooks;
                 borrowedGrid.DataBind();
                 readerBorrowedBooks.Close();
+
+                SqlDataReader readerYourBorrowedBooks = yourBorrowedBookscommand.ExecuteReader();
+                yourBorrowedBooks.DataSource = readerYourBorrowedBooks;
+                yourBorrowedBooks.DataBind();
+                readerYourBorrowedBooks.Close();
             }
             finally
             {

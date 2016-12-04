@@ -15,14 +15,11 @@ namespace PersonalLibraryProject_comp229.Pages
     {
         protected int bookISBNNo;
         private string userName;
-        private int bookStatus;
         private string userID;
-        //if bookStatus = 1 // available book 
-        //if bookStatus = 2//  current user have bought the book. return text will displayed
-        //if bookStatus = 3 // borrowed by some other user. 
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             bookISBNNo = Convert.ToInt32(Request.QueryString["isbn_no"]);
 
             if (!IsPostBack)
@@ -38,6 +35,8 @@ namespace PersonalLibraryProject_comp229.Pages
             {
                 submitButton.Visible = true;
                 bottomButton.Visible = true;
+                submitButton.Text = "Submit review";
+
                 userName = (Master as myPages.ProjectSiteMaster).getUserName();//get user name from session
                                                                                //check if user borrowed or user can return
                  userID = getUserID(userName); //fetch user id from give username.
@@ -46,34 +45,25 @@ namespace PersonalLibraryProject_comp229.Pages
                 {
                     bottomButton.Visible = true;
                     bottomButton.Text = "Borrow Book";
-                    bookStatus = 1;
                 }
                 else //if book is not availble.
                 {
                     //check if book is borrowed by the user it self.
                     if(isBookBorrowedByOtherUser(""+bookISBNNo, userID)) 
                     {
-                        bottomButton.Text = "Borrowed, sorry cannot borrow until user returns it. ";
-                        bookStatus = 3;
-                       
+                        bottomButton.Text = "Borrowed, sorry cannot borrow until user returns it. ";                       
                     }
                     else //borrowed by current user. //if borrowed by the user then change button to return
                     {
                         bottomButton.Visible = true;
                         bottomButton.Text = "Return Book";
-                        bookStatus = 2;
                     }
                 }
-
-                //                  UPDATE Comp229TeamProject.dbo.Books SET is_available = 0, user_id = 1 WHERE isbn_no = '121106031'
-                //SELECT b.is_available from Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON(b.user_id = u.user_id) WHERE b.isbn_no = '121106031' AND u.user_id = '1'
-
-
             }
             else
             {
                 bottomButton.Visible = false;
-                submitButton.Visible = false;
+                submitButton.Text = "Login inorder to post review or borrow book.";
             }
         }
            
@@ -81,10 +71,13 @@ namespace PersonalLibraryProject_comp229.Pages
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
             SqlCommand comm = new SqlCommand("SELECT b.book_name, b.book_detail, b.date FROM Comp229TeamProject.dbo.Books b WHERE b.isbn_no =@book_id", connection);
-            SqlCommand commReview = new SqlCommand("SELECT r.reviews_msg, u.name FROM Comp229TeamProject.dbo.Reviews r JOIN Comp229TeamProject.dbo.Users u ON(r.user_id = u.user_id) WHERE r.book_id = 1", connection);
+            SqlCommand commReview = new SqlCommand("SELECT r.reviews_msg, u.name FROM Comp229TeamProject.dbo.Reviews r JOIN Comp229TeamProject.dbo.Users u ON(r.user_id = u.user_id) JOIN Comp229TeamProject.dbo.Books b ON(r.book_id = b.book_id) WHERE b.isbn_no = @isbnNo", connection);
 
             comm.Parameters.Add("@book_id", System.Data.SqlDbType.Int);
             comm.Parameters["@book_id"].Value = bookISBNNo;
+
+            commReview.Parameters.Add("@isbnNo", System.Data.SqlDbType.Int);
+            commReview.Parameters["@isbnNo"].Value = bookISBNNo;
             try
             {
                 connection.Open();
@@ -104,6 +97,34 @@ namespace PersonalLibraryProject_comp229.Pages
             }
         }
 
+
+
+        protected int getBookId(string isbnNumber)
+        {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
+            SqlCommand comm = new SqlCommand("SELECT book_id from Comp229TeamProject.dbo.Books WHERE isbn_no = @isbnNo", connection);
+
+            comm.Parameters.Add("@isbnNo", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@isbnNo"].Value = isbnNumber;
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = comm.ExecuteReader();
+
+                int bookid = 0;
+                while (reader.Read())
+                {
+                    bookid = Convert.ToInt32(((IDataRecord)reader)[0]);
+                }
+                reader.Close();
+                return bookid;
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
 
         protected string getUserID(string userName)
@@ -235,14 +256,54 @@ namespace PersonalLibraryProject_comp229.Pages
             }
         }
 
+        protected void insertReview(int userID, int bookId, string reviewMsg)
+        {
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[Global.CONNECTION_STRING].ToString());
+            SqlCommand comm = new SqlCommand("INSERT INTO Comp229TeamProject.dbo.Reviews (user_id, book_id, reviews_msg) VALUES (@userId, @bookId, @reviewMSG);", connection);
+
+            comm.Parameters.Add("@userId", System.Data.SqlDbType.Int);
+            comm.Parameters["@userId"].Value = userID;
+
+            comm.Parameters.Add("@bookId", System.Data.SqlDbType.Int);
+            comm.Parameters["@bookId"].Value = bookId;
+
+            comm.Parameters.Add("@reviewMSG", System.Data.SqlDbType.VarChar);
+            comm.Parameters["@reviewMSG"].Value = reviewMsg;
+           
+            try
+            {
+                connection.Open();
+                comm.ExecuteNonQuery();
+                bindList();
+                TextArea1.Text = "";
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script> alert('error: " + ex.Message + "'); </script>");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         protected void detailGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
         protected void submitButtonClicked(object sender, EventArgs e)
         {
-
-            Response.Redirect("MainTrackingPage.aspx");
+            if(submitButton.Text == "Login inorder to post review or borrow book.")
+            {
+                Response.Redirect("login.aspx");
+                //redirect it to login page. 
+            }
+            else //if user is logged in then submit review in db
+            {
+                userName = (Master as myPages.ProjectSiteMaster).getUserName();
+                userID = getUserID(userName);
+                insertReview(int.Parse(userID), getBookId("" + bookISBNNo), TextArea1.Text);
+            }
         }
 
         protected void bottomButton_Click(object sender, EventArgs e)

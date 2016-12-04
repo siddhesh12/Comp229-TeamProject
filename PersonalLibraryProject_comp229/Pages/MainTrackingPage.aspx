@@ -21,7 +21,7 @@
     Personal Library is an Open Source.
 <br />
 <br />
-   <div class="auto-style8"> <asp:Label ID="Label1" runat="server" Text="Recently Added"></asp:Label></div>
+   <div class="auto-style8"> <asp:Label ID="Label1" runat="server" Text="Recently Added Books"></asp:Label></div>
     <br/><br/>
  <div style="margin-right: auto; margin-left: auto">  
       
@@ -95,7 +95,7 @@
     </div>
     <br/>
     <div class="auto-style8">
-        <asp:Label ID="Label3" runat="server" Text="Borrowed Books"></asp:Label></div>
+        <asp:Label ID="Label3" runat="server" Text="Borrowed Books by other users."></asp:Label></div>
     <br/>
     <asp:GridView ID="borrowedGrid" runat="server" GridLines="Vertical" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" HorizontalAlign="Center">
         <AlternatingRowStyle BackColor="White" />
@@ -123,6 +123,34 @@
         <SortedDescendingHeaderStyle BackColor="#575357" />
     </asp:GridView>
     <br/>
+    <div class="auto-style8">
+        <asp:Label ID="yourBooks" runat="server" Text="Your Borrowed Books"></asp:Label></div>
+    <br/>
+    <asp:GridView ID="yourBorrowedBooks" runat="server" GridLines="Vertical" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" HorizontalAlign="Center">
+        <AlternatingRowStyle BackColor="#CCCCCC" />
+        <Columns>
+            <asp:BoundField HeaderText="Title" dataField="book_name"/>
+             <asp:TemplateField>
+        <ItemTemplate>                
+          <asp:Button runat="server" 
+            ID="Details"
+            Text="BookDetail"
+            CommandName="detailCommand"
+            CommandArgument='<%#Eval("isbn_no") %>' />
+        </ItemTemplate>
+      </asp:TemplateField>
+            <%--<asp:ButtonField Text="Book Detail" CommandName="detailCommand" />--%>
+        </Columns>
+        <FooterStyle BackColor="#CCCCCC" />
+        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+        <SortedAscendingHeaderStyle BackColor="#808080" />
+        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+        <SortedDescendingHeaderStyle BackColor="#383838" />
+    </asp:GridView>
+    </br>
     <div>
         <asp:Button ID="insertButton" runat="server" Text="Insert" onClick="insertButtonClicked"/></div>
 
