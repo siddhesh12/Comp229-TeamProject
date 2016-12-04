@@ -21,7 +21,7 @@
     Personal Library is an Open Source.
 <br />
 <br />
-   <div class="auto-style8"> <asp:Label ID="Label1" runat="server" Text="Recently Added Books"></asp:Label></div>
+   <div class="auto-style8"> <asp:Label ID="Label1" runat="server" Text="Recently Added Books in last 7 days."></asp:Label></div>
     <br/><br/>
  <div style="margin-right: auto; margin-left: auto">  
       
@@ -64,7 +64,7 @@
 </asp:GridView></div>
     <br/>
     <div class="auto-style8">
-        <asp:Label ID="Label2" runat="server" Text="Available Books"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text="Available Books to borrow"></asp:Label>
     </div>
     <br/>
     <div>
@@ -152,6 +152,6 @@
     </asp:GridView>
     </br>
     <div>
-        <asp:Button ID="insertButton" runat="server" Text="Insert" onClick="insertButtonClicked"/></div>
+        <asp:Button ID="insertButton" runat="server" Text="Insert Book (Admin)" onClick="insertButtonClicked"/></div>
 
 </asp:Content>

@@ -59,7 +59,7 @@ namespace PersonalLibraryProject_comp229.Pages
             SqlCommand yourBorrowedBookscommand = new SqlCommand("	SELECT b.book_name, b.book_detail, b.date, b.isbn_no FROM Comp229TeamProject.dbo.Books b JOIN Comp229TeamProject.dbo.Users u ON (b.user_id= u.user_id) where u.name = @userName AND b.is_available = 0", connection);
 
             commRecentlyAdded.Parameters.Add("@date", System.Data.SqlDbType.Date);
-            commRecentlyAdded.Parameters["@date"].Value = DateTime.Now.AddDays(-15);
+            commRecentlyAdded.Parameters["@date"].Value = DateTime.Now.AddDays(-7);
 
             commAvailableBooks.Parameters.Add("@isAvailable", System.Data.SqlDbType.Bit);
             commAvailableBooks.Parameters["@isAvailable"].Value = true;
